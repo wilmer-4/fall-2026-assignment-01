@@ -7,7 +7,7 @@ export function getInventoryValue(
   //inventory[0] = item
   //inventory[1] = quanitity
   //nventory[2] = price per
-): number ; {
+): number {
   return inventory
 .filter((item) => item[1] > 5)
 .map((item) => item[1] * item[2])

@@ -11,22 +11,22 @@ type UserAccount = {
 }; //create the user account
 
 export class UserRegistry {
-  private records: UserAccount[] = []
+  private records: UserAccount[] = [] //store records
   public registerUser(
     data: Omit<UserAccount, 'id' | 'createdAt'>,
   ): UserAccount {
     
     
-      const id = String(Math.random());
-      const createdAt = new Date();
+      const id = String(Math.random()); //created unique id, maybe better way to do this?
+      const createdAt = new Date(); //date of creation
 
       const userAccount = {
         id,
         createdAt,
         ...data
-      };
+      }; //user account
 
-      this.records.push(userAccount);
+      this.records.push(userAccount); //add to record
 
        return userAccount
     }
@@ -36,8 +36,8 @@ export class UserRegistry {
     id: string,
   ): Readonly<Pick<UserAccount, 'id' | 'email' | 'profile'>> | undefined {
     for (const records of this.records){
-      if (records.id === id)
-      return Object.freeze({
+      if (records.id === id) // search
+      return Object.freeze({ //had to add object.freeze to pass the unit test.
         id: records.id,
         email: records.email,
         profile: records.profile,

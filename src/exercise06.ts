@@ -1,5 +1,5 @@
 export class Stack<T> {
-private array: T[] = [];
+private array: T[] = []; // you need an array that will hold data in a stack.
   public push(item: T): void {
     this.array.push(item);
   }
@@ -16,3 +16,4 @@ private array: T[] = [];
     return this.array.length;
   }
 }
+//just create a stack
